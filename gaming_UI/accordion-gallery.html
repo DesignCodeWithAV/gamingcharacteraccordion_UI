@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Accordion Gallery</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0c0c0c",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#1f0033",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "25px",
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center px-4 py-12">
+    <canvas id="bgCanvas"></canvas>
+    <div class="w-full max-w-7xl mx-auto">
+        <header class="mb-12 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Choose Your Warrior. Rule the Battle.</h1>
+            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Pick your fighter. Enter the arena. Dominate the battle.
+            </p>
+        </header>
+        <div class="accordion-container" id="accordion">
+            <div class="accordion-item group" onclick="activateItem(this)">
+                <img
+                    alt="Abstract marble sculpture face"
+                    src="image/SHADOW-NINJA.png"
+                />
+                <div class="overlay">
+                    <div class="overtext">
+                        <span class="vertical-text">Shadow Ninja</span>
+                        <span class="horizontal-text">Shadow Ninja</span>
+                        <span class="material-icons overicon">arrow_downward</span>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item group" onclick="activateItem(this)">
+                <img
+                    alt="Cyberpunk facial digital patterns"
+                    src="image/CYBER-WARRIOR.png"
+                />
+                <div class="overlay">
+                    <span class="vertical-text">Cyber Warrior</span>
+                    <span class="horizontal-text">Cyber Warrior</span>
+                    <span class="material-icons overicon">arrow_downward</span>
+                </div>
+            </div>
+            <div class="accordion-item group" onclick="activateItem(this)">
+                <img
+                    alt="Tribal aesthetic mask"
+                    src="image/FIRE-MAGE.png"
+                />
+                <div class="overlay">
+                    <span class="vertical-text">Fire Mage</span>
+                    <span class="horizontal-text">Fire Mage</span>
+                    <span class="material-icons overicon">arrow_downward</span>
+                </div>
+            </div>
+            <div class="accordion-item group" onclick="activateItem(this)">
+                <img
+                    alt="Futuristic royal mask"
+                    src="image/Frost-Titan.png"
+                />
+                <div class="overlay">
+                    <span class="vertical-text">Frost Titan</span>
+                    <span class="horizontal-text">Frost Titan</span>
+                    <span class="material-icons overicon">arrow_downward</span>
+                </div>
+            </div>
+            <div class="accordion-item group" onclick="activateItem(this)">
+                <img
+                    alt="Phoenix fire illustration"
+                    src="image/Thunder-Assassin.png"
+                />
+                <div class="overlay">
+                    <span class="vertical-text">Thunder Assassin</span>
+                    <span class="horizontal-text">Thunder Assassin</span>
+                    <span class="material-icons overicon">arrow_downward</span>
+                </div>
+            </div>
+            <div class="accordion-item active group" onclick="activateItem(this)">
+                <img
+                    alt="Cinematic Greek statue with dramatic sky"
+                    src="image/Blood-Hunter.png"
+                />
+                <div class="overlay">
+                    <span class="vertical-text">Blood Hunter</span>
+                    <span class="horizontal-text">Blood Hunter</span>
+                    <span class="material-icons overicon">arrow_downward</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function activateItem(element) {
+            // Remove active class from all items
+            const items = document.querySelectorAll('.accordion-item');
+            items.forEach(item => {
+                item.classList.remove('active');
+            });
+            // Add active class to clicked item
+            element.classList.add('active');
+        }
+    </script>
+    <script src="canvas.js"></script>
+</body>
+</html>

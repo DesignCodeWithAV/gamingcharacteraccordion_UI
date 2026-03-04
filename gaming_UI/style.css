@@ -1,0 +1,229 @@
+body {
+  background: linear-gradient(
+    135deg,
+    #0c0c0c,
+    #14001f,
+    #1f0033,
+    #000000
+  );
+  background-attachment: fixed;
+}
+#bgCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #0a0a0a;
+}
+.accordion-container {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1140px;
+    height: 600px;
+    margin: 0 auto;
+}
+.accordion-item {
+    position: relative;
+    flex: 0 0 86px;
+    height: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.accordion-item.active {
+    flex: 1 0 550px;
+}
+.accordion-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: all 0.3s ease;
+    transform: translate(5px) scale(1.2);
+}
+.accordion-item:hover img {
+    transform: translate(0px) scale(1);
+    opacity: 0.5;
+}
+.accordion-item.active img {
+    filter: brightness(0.9);
+}
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 40%);
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    pointer-events: none;
+}
+.overicon {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+    color: #dddddd;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.accordion-item.active .overicon {
+    top: auto;
+    bottom: 2rem;
+    right: 2rem;
+    left: auto;
+    transform: rotate(90deg);
+}
+.accordion-item:hover .overicon {
+    top: 6rem;
+}
+.accordion-item.active:hover .overicon {
+    top: auto;
+    right: 6rem;
+}
+.overicon:after{
+    content: "";
+    position: absolute;
+    bottom: 40px;
+    top: -2rem;
+    height: 2rem;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.24);
+}
+.accordion-item:hover .overicon:after {
+    content: "";
+    position: absolute;
+    bottom: 40px;
+    top: -6rem;
+    height: 6rem;
+}
+.accordion-item.active .overicon:after {
+    top: auto;
+}
+.accordion-item.active:hover .overicon:after {
+    top: auto;
+}
+.vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+}
+.horizontal-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.accordion-item.active .vertical-text {
+    opacity: 0;
+}
+.accordion-item.active .horizontal-text {
+    opacity: 1;
+}
+.bg-gradient-custom {
+    background: radial-gradient(circle at top right, #1e1b4b, #0a0a1a);
+}
+@media (max-width:1199px){
+    .accordion-container {
+        max-width: 920px;
+        height: 500px;
+        gap: 1rem;
+    }
+    .accordion-item {
+        flex: 0 0 60px;
+        border-radius: 18px;
+    }
+    .accordion-item.active {
+        flex: 1 0 540px;
+    }
+    .overlay {
+        padding: 2em 1em;
+    }
+}
+@media (max-width:991px){
+    .accordion-container {
+        max-width: 100%;
+        height: 460px;
+        gap: 1rem;
+    }
+    .accordion-item.active {
+        flex: 1 0 calc(100% - 380px);
+    }
+}
+@media (max-width:767px){
+    .accordion-container {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .accordion-item {
+        flex: 1 0 100%;
+        height: 60px;
+    }
+    .accordion-item.active {
+        flex: 1 0 100%;
+        height: 380px;
+    }
+    .overlay {
+        padding: 1em 1em;
+    }
+    .vertical-text {
+        writing-mode: horizontal-tb;
+        bottom: 1rem;
+        left: 1rem;
+        transform: translateX(0) rotate(0deg);
+    }
+    .horizontal-text {
+        font-size: 1.5rem;
+    }
+    .overicon {
+        right: 1rem;
+        left: auto;
+        transform: rotate(90deg);
+        top: 0;
+        bottom: 0;
+        margin: auto 0px;
+    }
+    .accordion-item:hover .overicon {
+        top: 0;
+        right: 1rem;
+    }
+    .accordion-item.active .overicon, .accordion-item.active:hover .overicon {
+        top: auto;
+        bottom: 1rem;
+        right: 1rem;
+    }
+    .accordion-item.active:hover .overicon:after {
+        top: auto;
+        height: 2rem;
+    }
+    .accordion-item:hover img {
+        opacity: 1;
+    }
+}
+@media (max-width:414px){
+    .accordion-item.active {
+        height: 320px;
+    }
+}
